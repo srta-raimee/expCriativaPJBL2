@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Projeto</title>
+<link rel="icon" href="..\static\images\icon.png">
+<link href="/static/css/styles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script src="/static/js/jquery.quicksand.js" type="text/javascript"></script>
+<script src="/static/js/jquery.easing.js" type="text/javascript"></script>
+<script src="/static/js/script.js" type="text/javascript"></script>
+<script src="/static/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+<link href="/static/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="page-wrapper">
+  <div class="portfolio-content">
+    <h1 class="title-page">Fotos do projeto:</h1>
+
+    <ul class="portfolio-area">
+      <li class="portfolio-item2" data-id="id-0" data-type="cat-item-4">
+        <div> <span class="image-block"> <a class="image-zoom" href="https://midias.correiobraziliense.com.br/_midias/jpg/2021/04/01/675x450/1_pri_0204_1601_cor_25cm-6592519.jpg" rel="prettyPhoto[gallery]" title="Praesent placerat"><img width="190" height="130" src="https://midias.correiobraziliense.com.br/_midias/jpg/2021/04/01/675x450/1_pri_0204_1601_cor_25cm-6592519.jpg" alt="Praesent placerat" title="Praesent placerat" /> </a> </span>
+          <div class="home-portfolio-text">
+            <h2 class="post-title-portfolio"><a href="#" rel="bookmark" title="Praesent placerat">Foto de dia</a></h2>
+          </div>
+        </div>
+      </li>
+      <li class="portfolio-item2" data-id="id-1" data-type="cat-item-2">
+        <div> <span class="image-block"> <a class="image-zoom" href="images/big/pic2.jpg" rel="prettyPhoto[gallery]" title="Fusce pellentesque"><img width="190" height="130" src="https://conteudo.imguol.com.br/c/entretenimento/09/2018/04/30/faixa-de-pedestre-iluminada-sao-paulo-1525103391995_v2_4x3.jpg" alt="Fusce pellentesque" title="Fusce pellentesque" /> </a> </span>
+          <div class="home-portfolio-text">
+            <h2 class="post-title-portfolio"><a href="#" rel="bookmark" title="Fusce pellentesque">Projeto 1</a></h2>
+          </div>
+        </div>
+      </li>
+      <li class="portfolio-item2" data-id="id-2" data-type="cat-item-1">
+        <div> <span class="image-block"> <a class="image-zoom" href="images/big/pic3.jpg" rel="prettyPhoto[gallery]" title="Vestibulum "><img width="190" height="130" src="https://cdn.abcdoabc.com.br/placas-acendem-noite_4dc05317.jpg" alt="Vestibulum " title="Vestibulum " /> </a> </span>
+          <div class="home-portfolio-text">
+            <h2 class="post-title-portfolio"><a href="#" rel="bookmark" title="Vestibulum ">Projeto 2 </a></h2>
+          </div>
+        </div>
+      </li>
+
+      <div class="column-clear"></div>
+    </ul>
+    <!--end portfolio-area -->
+  </div>
+</div> <!---page-wrap-End--->
+
+
+{% endblock %}
+{% block class3 %} class = 'active' {% endblock %}

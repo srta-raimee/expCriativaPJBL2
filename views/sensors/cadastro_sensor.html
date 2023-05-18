@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %} Cadastro {% endblock %}
+{% block content %}
+
+<div class="page-wrap">
+<div class="wrap3">  
+  <div class="leftcol">
+  <div class="panel">
+  	<div class="title">
+  		<h1>Cadastro de infos dos Sensores: </h1>
+        
+    </div>
+      <div class="panel">
+      
+      
+      <form action="/registrar_sensor" method="POST">
+          <div class="contact-form mar-top30">
+            <label> <span>Nome do Sensor:</span>
+              <input type="text" class="input_text" name="nomeSensor" id="nomeSensor"/>
+              </label>
+              <label> <span>Tempo ligado:</span>
+              <input type="text" class="input_text" name="tempoLigado" id="tempoLigado"/>
+              
+              <label> <span>Quantidade por Faixa:</span>
+                <input type="text" class="input_text" name="qtdFaixa" id="qtdFaixa"/>
+              
+              <h2>Sobre o pedestre: </h2>
+              <label> <span>Tempo de Travessia:</span>
+                <input type="text" class="input_text" name="tempoTravessia" id="tempoTravessia"/>
+              
+                
+            <button type="submit" class="button">Enviar</button>
+          </div>
+        </form>
+        <div class="clearing"></div>
+      </div>
+  </div>	
+  </div>
+  
+    
+  <div class="clearing"></div>
+</div>    
+</div><!---page-wrap-End--->
+
+
+
+{% endblock %}
+{% block class4 %} class = 'active' {% endblock %}

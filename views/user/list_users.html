@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+{% block title %} Listagem Usuários {% endblock %}
+{% block content %}
+    
+  
+<div class="page-wrap">
+<div class="wrap3">  
+  <div class=" leftcol">
+  <div class="panel">
+  	<div class="title">
+  		<h1>Listagem </h1>
+        <span>Listagem de Usuários: </span>
+    </div>
+      <div class="panel">
+        <div>
+          {% for i in range(nomes|length) %}
+    <li><b>{{ nomes[i] }}</b> </br>
+      Email: {{ emails[i] }} </br>
+      Senha: {{ senhas[i] }} </br>
+      CPF: {{ cpfs[i] }}</li></br>
+{% endfor %}
+        </div>
+    
+        </div>
+        <div class="clearing"></div>
+      </div>
+
+  </div>	
+  </div>
+  
+  
+    
+  <div class="clearing"></div>
+</div>    
+</div><!---page-wrap-End--->
+
+
+{% endblock %}
+{% block class9 %} class = 'active' {% endblock %}
+

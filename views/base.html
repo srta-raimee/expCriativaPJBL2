@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>{% block head %}
+<link rel="icon" href="..\static\images\icon.png">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{% block title %}{% endblock %}</title>
+<link href="/static/css/styles.css" rel="stylesheet" type="text/css" />
+
+</head> {% endblock %}
+<body>
+
+<div class="header-wrap">
+  
+	<div class="logo">
+		
+    <img id="logo" src="..\static\images\logo.png"></img> 
+    <h3>Uma solução que brilha</h3>
+    </div>
+    
+</div><!---header-wrap-End--->
+
+<div class="menu-wrap">
+	<div class="menu">
+		<ul>
+            <li><a href="/" {% block class1 %}  {% endblock %}>Home</a></li>
+            <li><a href="about" {% block class2 %} class="" {% endblock %}>Sobre</a></li>
+            <li><a href="project" {% block class3 %} class="" {% endblock %}>Projeto</a></li>
+            <li><a href="pag_cadastro_sensor" {% block class4 %} class="" {% endblock %}>+Sensor</a></li>
+            <li><a href="#" {% block class5 %} class="" {% endblock %}>Faixa</a></li>
+            <li><a href="listar_sensores" {% block class6 %} class="" {% endblock %}>Sensores</a></li>
+            <li><a href="pag_cadastro_user" {% block class7 %} class="" {% endblock %}>+User</a></li>
+            <li><a href="pag_login" {% block class8 %} class="" {% endblock %}>Login</a></li>
+            <li><a href="listar_users" {% block class9 %} class="" {% endblock %}>Usuários</a></li>
+        </ul>
+  </div>
+
+  <div class="socia-wrap">
+	<div class="socail">
+		<ul>
+        	<li><a href="#"><img src="/static/images/aim.png" alt="" /></a></li>
+        	<li><a href="#"><img src="/static/images/facebook.png" alt="" /></a></li>
+            <li><a href="#"><img src="/static/images/twwtter.png" alt="" /></a></li>
+            <li><a href="#"><img src="/static/images/linkedin.png" alt="" /></a></li>
+		</ul>
+	</div>
+</div>
+</div><!---menu-wrap-End--->
+
+{% block content %} 
+{% endblock %}
+
+{% block footer %}
+<div class="clearing"></div>
+<div class="copyright-wrap">
+	<div class="wrap">
+    	<div class="content">
+        <p>Copyright Larisalves&copy;. Todos os direitos reservados.</p>
+        </div>
+	</div>
+</div><!---copyright-wrap-End--->
+{% endblock %}
+</body>
+</html>

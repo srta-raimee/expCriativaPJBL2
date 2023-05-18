@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} Cdastro User {% endblock %}
+{% block content %}
+
+<div class="page-wrap">
+    <div class="wrap3">  
+      <div class=" leftcol">
+      <div class="panel">
+          <div class="title">
+              <h1>Cadastro </h1>
+            <span>Cadastro do usuário</span>
+        </div>
+          <div class="panel">
+            
+                <form action="/registrar_user" method="POST">
+                    <div class="contact-form mar-top30">
+                      <label> <span>Nome</span>
+                        <input type="text" class="input_text" name="nome" id="nome"/>
+                        </label>
+                        <label> <span>Email</span>
+                        <input type="text" class="input_text" name="email" id="email"/>
+                        
+                        <label> <span>Senha</span>
+                          <input type="password" class="input_text" name="senha" id="senha"/>
+                        
+                        <label> <span>CPF</span>
+                          <input type="text" class="input_text" name="cpf" id="xpf"/>
+                        
+                          
+                      <button type="submit" class="button">Enviar</button>
+                    </div>
+                  </form>
+        
+            </div>
+            <div class="clearing"></div>
+          </div>
+    
+      </div>	
+      </div>
+      </div>
+{% endblock %}
+
+{% block class7 %} class = 'active' {% endblock %}

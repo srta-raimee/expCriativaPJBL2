@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block content %}
+
+<div class="page-wrap">
+    <div class="wrap3">  
+      <div class=" leftcol">
+      <div class="panel">
+          <div class="title">
+              <h1>Login </h1>
+            <span>Login do usuário</span>
+        </div>
+          <div class="panel">
+            <form action="/login" method="POST">
+              <div class="contact-form mar-top30">
+              
+                  <label> <span>Email</span>
+                  <input type="text" class="input_text" name="email" id="email"/>
+                  
+                  <label> <span>Senha</span>
+                    <input type="password" class="input_text" name="senha" id="senha"/>
+                  
+                
+                    
+                <button type="submit" class="button">Enviar</button>
+              </div>
+            </form>
+            </div>
+            <div class="clearing"></div>
+          </div>
+    
+      </div>	
+      </div>
+      </div>
+{% endblock %}
+
+{% block class8 %} class = 'active' {% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %} Listagem {% endblock %}
+{% block content %}
+    
+  
+<div class="page-wrap">
+<div class="wrap3">  
+  <div class=" leftcol">
+  <div class="panel">
+  	<div class="title">
+  		<h1>Listagem </h1>
+        <span>Listagem de Sensores: </span>
+    </div>
+      <div class="panel">
+        <div>
+          {% for i in range(sensores|length) %}
+    <li><b>{{ sensores[i] }}</b> </br>
+      Tempo Ligado: {{ tempos[i] }} </br>
+      Quantidade por faixa: {{ qtd[i] }} </br>
+      Tempo da Travessia do Pedestre: {{ tempoTrav[i] }}</li></br>
+{% endfor %}
+        </div>
+    
+        </div>
+        <div class="clearing"></div>
+      </div>
+
+  </div>	
+  </div>
+  
+  
+    
+  <div class="clearing"></div>
+</div>    
+</div><!---page-wrap-End--->
+
+
+{% endblock %}
+{% block class6 %} class = 'active' {% endblock %}
+

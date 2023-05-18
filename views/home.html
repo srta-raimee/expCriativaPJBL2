@@ -1,0 +1,24 @@
+<!-- isso aqui chama o layout de base.html invés de precisar repetir um monte de coisa -->
+
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+<div class="conteudo"><h1>A Lumen Pass</h1></br><p>Lumen Pass é uma empresa comprometida em garantir a segurança dos cidadãos por meio de soluções inovadoras e simples de aplicar em cidades. Acreditamos que pequenas mudanças podem ter um grande impacto, e é por isso que o nosso principal projeto é a luz Lumen Pass - uma luz que acende quando um pedestre atravessa uma faixa de pedestres durante a noite.
+  Com a Lumen Pass, estamos ajudando a tornar as ruas mais seguras para pedestres e motoristas. Nós entendemos que a segurança é uma prioridade em áreas urbanas, e a nossa solução é uma forma eficaz de melhorar a visibilidade e reduzir o risco de acidentes de trânsito.
+  Além disso, a Lumen Pass também trabalha em colaboração com governos locais para implementar projetos de iluminação pública em áreas com pouca visibilidade, aumentando a segurança dos cidadãos e melhorando a qualidade de vida em geral.
+  Na Lumen Pass, estamos comprometidos em tornar as cidades mais seguras para todos os cidadãos, e nossa equipe está sempre empenhada em desenvolver soluções inovadoras para ajudar a tornar isso possível
+</p></div>
+<div class="banner-wrap">
+	<div class="banner">
+    <div class="banner-img"><img src="../static/images/lumen.jpg" alt="" /></div>
+    
+  </div>
+  <div class="shadow"></div>
+  
+</div><!---banner-wrap-End--->
+
+
+
+{% endblock %}
+{% block class1 %} class = 'active' {% endblock %}
