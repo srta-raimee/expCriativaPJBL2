@@ -11,7 +11,7 @@ class Sensor(db.Model):
 
     dispositivo_id = db.Column(db.Integer, db.ForeignKey('dispositivo.id'))
     # dispositivo = db.relationship('Dispositivo', backref=db.backref('sensores', lazy='dynamic'))
-    registros = db.relationship('read', backref='sensor', lazy=True)
+    registros = db.relationship('Read', backref='sensor', lazy=True)
 
     # def __init__(self, nome, descricao, tipo, limite_proximidade, dispositivo):
     #     self.nome = nome
@@ -20,23 +20,38 @@ class Sensor(db.Model):
     #     self.limite_proximidade = limite_proximidade
     #     self.dispositivo = dispositivo
 
-    def adicionar_sensor(nome, descricao, tipo, limite_proximidade, dispositivo_id):
+    def adicionar_sensor(nome, descricao, tipo, limite_proximidade): #, dispositivo_id
         # from models import Dispositivo
         # dispositivo = Dispositivo.query.get(dispositivo_id)
         # if dispositivo:
-            sensor = Sensor(nome=nome, descricao=descricao, tipo=tipo, limite_proximidade=limite_proximidade, dispositivo_id=dispositivo_id)
+            sensor = Sensor(nome=nome, descricao=descricao, tipo=tipo, limite_proximidade=limite_proximidade) # , dispositivo_id=dispositivo_id
             db.session.add(sensor)
             db.session.commit()
             # return sensor
 
-
-    def excluir_sensor(sensor_id):
-        sensor = Sensor.query.get(sensor_id)
-        if sensor:
-            db.session.delete(sensor)
+    def ver_sensores():
+        sensors = Sensor.query.all()
+        #   sensors = Sensor.query.join(Device, Device.id == Sensor.id)\
+        #             .add_columns(Sensor.id, Device.name, Device.brand, Device.model, 
+        #                          Device.voltage, Device.description,  Device.is_active, Sensor.measure).all()
+        
+        return sensors
+    
+    def delete_sensor(id):
+        try:
+            Sensor.query.filter_by(id=id).delete()
+            Dispositivo.query.filter_by(id=id).delete()
             db.session.commit()
             return True
-        return False
+        except:
+            return False
+    # def excluir_sensor(sensor_id):
+    #     sensor = Sensor.query.get(sensor_id)
+    #     if sensor:
+    #         db.session.delete(sensor)
+    #         db.session.commit()
+    #         return True
+    #     return False
 
     def atualizar_sensor(sensor_id, nome, descricao, tipo, limite_proximidade):
         sensor = Sensor.query.get(sensor_id)

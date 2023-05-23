@@ -9,7 +9,7 @@ class Acao(db.Model):
     tipo = db.Column(db.String(50))
 
     dispositivo_id = db.Column(db.Integer, db.ForeignKey('dispositivo.id'))
-    dispositivo = db.relationship('Dispositivo', backref=db.backref('acoes', lazy='dynamic'))
+    # dispositivo = db.relationship('Dispositivo', backref=db.backref('acoes', lazy='dynamic'))
 
     # def __init__(self, nome, descricao, tipo, dispositivo):
     #     self.nome = nome

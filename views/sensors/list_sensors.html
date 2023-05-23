@@ -13,11 +13,26 @@
     </div>
       <div class="panel">
         <div>
-          {% for i in range(sensores|length) %}
-    <li><b>{{ sensores[i] }}</b> </br>
-      Tempo Ligado: {{ tempos[i] }} </br>
-      Quantidade por faixa: {{ qtd[i] }} </br>
-      Tempo da Travessia do Pedestre: {{ tempoTrav[i] }}</li></br>
+          {% for sensor in sensores %}
+          <tr>
+            <h3>Nome do Sensor: </h3>
+            <td>{{ sensor.nome }}</td>
+            <h3>Descrição: </h3>
+            <td>{{ sensor.descricao }}</td>
+            <h3>ID Sensor:</h3>
+            <td>{{ sensor.id }}</td>
+            <h3>Tipo: </h3>
+            <td>{{ sensor.tipo }}</td>
+            <h3>Limite de Proximidade: </h3>
+            <td>{{ sensor.limite_proximidade }}</td>
+          </br></br>
+          <div>
+            <button class="button">Atualizar</button>     
+            <td><a href="/sensors/delete_sensor/{{ sensor.id }}" onclick="return confirm('Tem certeza que deseja excluir esse sensor?');"> Excluir</a></td>
+
+          </div>
+          </br></br>
+          
 {% endfor %}
         </div>
     
