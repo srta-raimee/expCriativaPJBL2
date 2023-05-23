@@ -28,7 +28,7 @@ def pag_log():
 #     global nomes, emails, senhas, cpfs
 #     if nomes[i] == 
 
-@render.route("/listar_sensores")
+@render.route("/listar_sensores_pag")
 def listar_sensores():
     return fk.render_template("sensors/sensores.html")
 
@@ -47,18 +47,18 @@ def projetar():
 
 # rotas post
 
-@render.route("/registrar_user", methods=["get", "post"]) # vai ser chamado pelo botão no form html usando a chamaada action
-def reg_user():
-    nome = fk.request.form.get('nome',None)
-    email = fk.request.form.get('email', None)
-    senha = fk.request.form.get('senha', None)
-    cpf = fk.request.form.get('cpf', None)
+# @render.route("/registrar_user", methods=["get", "post"]) # vai ser chamado pelo botão no form html usando a chamaada action
+# def reg_user():
+#     nome = fk.request.form.get('nome',None)
+#     email = fk.request.form.get('email', None)
+#     senha = fk.request.form.get('senha', None)
+#     cpf = fk.request.form.get('cpf', None)
 
-    global nomes, emails, senhas, cpfs
-    nomes.append(nome)
-    emails.append(email)
-    senhas.append((senha))
-    cpfs.append(cpf)
-    print(nomes)
+#     global nomes, emails, senhas, cpfs
+#     nomes.append(nome)
+#     emails.append(email)
+#     senhas.append((senha))
+#     cpfs.append(cpf)
+#     print(nomes)
     
-    return fk.redirect(fk.url_for('render.pag_log')) 
+#     return fk.redirect(fk.url_for('render.pag_log')) 

@@ -11,8 +11,8 @@ class Acao(db.Model):
     dispositivo_id = db.Column(db.Integer, db.ForeignKey('dispositivo.id'))
     dispositivo = db.relationship('Dispositivo', backref=db.backref('acoes', lazy='dynamic'))
 
-    def __init__(self, nome, descricao, tipo, dispositivo):
-        self.nome = nome
-        self.descricao = descricao
-        self.tipo = tipo
-        self.dispositivo = dispositivo
+    # def __init__(self, nome, descricao, tipo, dispositivo):
+    #     self.nome = nome
+    #     self.descricao = descricao
+    #     self.tipo = tipo
+    #     self.dispositivo = dispositivo

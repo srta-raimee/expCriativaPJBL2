@@ -25,9 +25,9 @@ class Dispositivo(db.Model):
     acoes = db.relationship('Acao', backref='dispositivos', lazy=True)
 
 
-    def __init__(self, nome, descricao):
-        self.nome = nome
-        self.descricao = descricao
+    # def __init__(self, nome, descricao):
+    #     self.nome = nome
+    #     self.descricao = descricao
 
 def adicionar_dispositivo(nome, descricao):
     dispositivo = Dispositivo(nome=nome, descricao=descricao)

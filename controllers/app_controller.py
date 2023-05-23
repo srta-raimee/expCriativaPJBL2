@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 from controllers.render import render
-from controllers.user import user
-from controllers.sensors import sensors
-# from controllers.devices import devices
+from controllers.user_controller import user
+from controllers.sensors_controller import sensors
+# from controllers.devices_controller import devices
 
 from models.db import db, instance 
 
