@@ -45,6 +45,17 @@ class Sensor(db.Model):
             return True
         except:
             return False
+        # sensor = Sensor.query.filter(Sensor.id == id).first()
+        # Sensor.query.filter_by(limite_proximidade="%").delete()
+        # sensor.delete()
+
+        # try:
+        #     Sensor.query.filter_by(id=id).delete()
+        #     Dispositivo.query.filter_by(id=id).delete()
+        #     db.session.commit()
+        #     return True
+        # except:
+        #     return False
     # def excluir_sensor(sensor_id):
     #     sensor = Sensor.query.get(sensor_id)
     #     if sensor:
