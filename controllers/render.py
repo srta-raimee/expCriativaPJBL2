@@ -50,6 +50,27 @@ def delete_sensor(id):
         flash("Dispositivo Sensor não pode ser excluído pois está relacionado a leituras salvas no banco!!", "danger")
     return redirect(url_for('render.listar_sensores'))
 
+@render.route("/update_sensor/<id>")
+def update_sensor(id):
+    sensor = db.session.query(Dispositivo, Sensor)\
+                        .join(Sensor, Sensor.id == Dispositivo.id)\
+                        .filter(Sensor.id == int(id)).first()
+    
+    # sensor = db.session.query(Sensor)
+
+    return render_template("/sensors/update_sensor.html", sensor = sensor)
+
+@render.route("/salvar_sensor_changes", methods=["POST"])
+def salvar_sensor_changes():
+    if request.method == "POST":
+        print('cu'*1000)
+        data = request.form.copy()
+        print(data)
+        Sensor.update_sensor(data)
+        return redirect(url_for('render.listar_sensores'))
+    else:
+        return "cu"
+
 
 @render.route("/about")
 def about():

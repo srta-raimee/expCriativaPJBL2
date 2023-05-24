@@ -31,10 +31,7 @@ class Sensor(db.Model):
 
     def ver_sensores():
         sensors = Sensor.query.all()
-        #   sensors = Sensor.query.join(Device, Device.id == Sensor.id)\
-        #             .add_columns(Sensor.id, Device.name, Device.brand, Device.model, 
-        #                          Device.voltage, Device.description,  Device.is_active, Sensor.measure).all()
-        
+      
         return sensors
     
     def delete_sensor(id):
@@ -45,75 +42,23 @@ class Sensor(db.Model):
             return True
         except:
             return False
-        # sensor = Sensor.query.filter(Sensor.id == id).first()
-        # Sensor.query.filter_by(limite_proximidade="%").delete()
-        # sensor.delete()
-
-        # try:
-        #     Sensor.query.filter_by(id=id).delete()
-        #     Dispositivo.query.filter_by(id=id).delete()
-        #     db.session.commit()
-        #     return True
-        # except:
-        #     return False
-    # def excluir_sensor(sensor_id):
+      
+    def update_sensor(data):
+        Sensor.query.filter_by(id=data['id'])\
+                .update(dict(nome = data['nome'], descricao=data['descricao'], tipo=data['tipo'], limite_proximidade=data['limite_proximidade']))
+        
+        # Sensor.query.filter_by(id=data['id'])\
+        #                 .update(dict(nome = data['nome']))
+        db.session.commit()
+    # def atualizar_sensor(sensor_id, nome, descricao, tipo, limite_proximidade):
     #     sensor = Sensor.query.get(sensor_id)
     #     if sensor:
-    #         db.session.delete(sensor)
+    #         sensor.nome = nome
+    #         sensor.descricao = descricao
+    #         sensor.tipo = tipo
+    #         sensor.limite_proximidade = limite_proximidade
     #         db.session.commit()
-    #         return True
-    #     return False
-
-    def atualizar_sensor(sensor_id, nome, descricao, tipo, limite_proximidade):
-        sensor = Sensor.query.get(sensor_id)
-        if sensor:
-            sensor.nome = nome
-            sensor.descricao = descricao
-            sensor.tipo = tipo
-            sensor.limite_proximidade = limite_proximidade
-            db.session.commit()
-            return sensor
+    #         return sensor
 
 
-    # class Sensor(db.Model):
-    #     __tablename__ = "sensors"
-    #     id = db.Column("id", db.Integer, db.ForeignKey(Device.id), primary_key = True)
-    #     measure = db.Column(db.String(20))
-
-    #     reads = db.relationship("Read", backref="sensors", lazy=True)
-
-    #     # def get_sensors():
-    #     #     sensors = Sensor.query.join(Device, Device.id == Sensor.id)\
-    #     #                 .add_columns(Sensor.id, Device.name, Device.brand, Device.model, 
-    #     #                              Device.voltage, Device.description,  Device.is_active, Sensor.measure).all()
-            
-    #     #     return sensors
-        
-    #     def save_sensor(name, brand, model, description, voltage, is_active, measure):
-    #         device = Device(name = name, brand = brand, model = model, 
-    #                             description = description, voltage = voltage, is_active = is_active)
-        
-    #         sensor = Sensor(id = device.id, measure = measure)
-            
-    #         device.sensors.append(sensor)
-    #         db.session.add(device)
-    #         db.session.commit()
-
-    #     # def delete_sensor(id):
-    #     #     sensor = Sensor.query.filter(Sensor.id == id).first()
-    #     #     Sensor.query.filter_by(measure="%").delete()
-    #     #     sensor.delete()
-
-    #     # def delete_sensor_by_measure(measure):
-    #     #     Sensor.query.filter_by(measure=measure).delete()
-    #     #     db.session.commit()
-
-    #     # def update_sensor(data):
-    #     #     Device.query.filter_by(id=data['id'])\
-    #     #             .update(dict(name = data['name'], brand=data['brand'], model = data['model'], 
-    #     #                     voltage = data['voltage'], description = data['description'], 
-    #     #                     is_active = data['is_active']))
-            
-    #     #     Sensor.query.filter_by(id=data['id'])\
-    #     #                     .update(dict(measure = data['measure']))
-    #     #     db.session.commit()
+    
