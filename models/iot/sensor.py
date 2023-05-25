@@ -10,16 +10,9 @@ class Sensor(db.Model):
     limite_proximidade = db.Column(db.Float)
 
     dispositivo_id = db.Column(db.Integer, db.ForeignKey('dispositivo.id'))
-    # dispositivo = db.relationship('Dispositivo', backref=db.backref('sensores', lazy='dynamic'))
     registros = db.relationship('Read', backref='sensor', lazy=True)
 
-    # def __init__(self, nome, descricao, tipo, limite_proximidade, dispositivo):
-    #     self.nome = nome
-    #     self.descricao = descricao
-    #     self.tipo = tipo
-    #     self.limite_proximidade = limite_proximidade
-    #     self.dispositivo = dispositivo
-
+   
     def adicionar_sensor(nome, descricao, tipo, limite_proximidade): #, dispositivo_id
   
             sensor = Sensor(nome=nome, descricao=descricao, tipo=tipo, limite_proximidade=limite_proximidade) # , dispositivo_id=dispositivo_id

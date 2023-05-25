@@ -7,8 +7,8 @@ dispositivos = Blueprint("dispositivos", __name__, template_folder="./views/", s
 
 @dispositivos.route("/registrar_dispositivo", methods=["POST"])
 def registrar_dispositivo():
-    nome = request.form.get('nome_disp', None)
-    descricao = request.form.get('descricao_disp', None)
+    nome = request.form.get('nome', None)
+    descricao = request.form.get('descricao', None)
     status = request.form.get('status', None)
     
     # Verificar o valor do status

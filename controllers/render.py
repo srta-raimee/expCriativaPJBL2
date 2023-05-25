@@ -77,13 +77,12 @@ def update_dispositivo(id):
 @render.route("/salvar_sensor_changes", methods=["POST"])
 def salvar_sensor_changes():
     if request.method == "POST":
-        print('cu'*1000)
         data = request.form.copy()
         print(data)
         Sensor.update_sensor(data)
         return redirect(url_for('render.listar_sensores'))
     else:
-        return "cu"
+        return "nao"
 
 
 @render.route("/about")
@@ -95,20 +94,3 @@ def projetar():
     return render_template("project.html")
 
 
-# rotas post
-
-# @render.route("/registrar_user", methods=["get", "post"]) # vai ser chamado pelo botão no form html usando a chamaada action
-# def reg_user():
-#     nome = fk.request.form.get('nome',None)
-#     email = fk.request.form.get('email', None)
-#     senha = fk.request.form.get('senha', None)
-#     cpf = fk.request.form.get('cpf', None)
-
-#     global nomes, emails, senhas, cpfs
-#     nomes.append(nome)
-#     emails.append(email)
-#     senhas.append((senha))
-#     cpfs.append(cpf)
-#     print(nomes)
-    
-#     return fk.redirect(fk.url_for('render.pag_log')) 
