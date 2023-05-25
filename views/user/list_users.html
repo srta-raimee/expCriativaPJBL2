@@ -14,11 +14,11 @@
     </div>
       <div class="panel">
         <div>
-          {% for i in range(nomes|length) %}
-    <li><b>{{ nomes[i] }}</b> </br>
-      Email: {{ emails[i] }} </br>
-      Senha: {{ senhas[i] }} </br>
-      CPF: {{ cpfs[i] }}</li></br>
+          {% for user in users %}
+    <li><b>{{ user.username }}</b> </br>
+      Email: {{ user.email }} </br>
+      Senha: {{ user.password }} </br>
+      CPF: {{ user.cpf }}</li></br>
 {% endfor %}
         </div>
     
