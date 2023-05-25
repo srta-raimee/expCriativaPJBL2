@@ -82,6 +82,7 @@ def salvar_sensor_changes():
         Sensor.update_sensor(data)
         return redirect(url_for('render.listar_sensores'))
     else:
+        
         return "nao"
 
 
