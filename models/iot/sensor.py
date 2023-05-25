@@ -21,9 +21,7 @@ class Sensor(db.Model):
     #     self.dispositivo = dispositivo
 
     def adicionar_sensor(nome, descricao, tipo, limite_proximidade): #, dispositivo_id
-        # from models import Dispositivo
-        # dispositivo = Dispositivo.query.get(dispositivo_id)
-        # if dispositivo:
+  
             sensor = Sensor(nome=nome, descricao=descricao, tipo=tipo, limite_proximidade=limite_proximidade) # , dispositivo_id=dispositivo_id
             db.session.add(sensor)
             db.session.commit()
@@ -46,19 +44,6 @@ class Sensor(db.Model):
     def update_sensor(data):
         Sensor.query.filter_by(id=data['id'])\
                 .update(dict(nome = data['nome'], descricao=data['descricao'], tipo=data['tipo'], limite_proximidade=data['limite_proximidade']))
-        
-        # Sensor.query.filter_by(id=data['id'])\
-        #                 .update(dict(nome = data['nome']))
+     
         db.session.commit()
-    # def atualizar_sensor(sensor_id, nome, descricao, tipo, limite_proximidade):
-    #     sensor = Sensor.query.get(sensor_id)
-    #     if sensor:
-    #         sensor.nome = nome
-    #         sensor.descricao = descricao
-    #         sensor.tipo = tipo
-    #         sensor.limite_proximidade = limite_proximidade
-    #         db.session.commit()
-    #         return sensor
-
-
-    
+   

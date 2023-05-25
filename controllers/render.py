@@ -24,23 +24,32 @@ def pag_cad_user():
 def pag_log():
     return render_template("auth/login.html") 
 
-# @render.route("/login")
-# def login():
-#     global nomes, emails, senhas, cpfs
-#     if nomes[i] == 
-
-# @render.route("/listar_sensores_pag")
-# def listar_sensores_pag():
-#     return fk.render_template("sensors/list_sensors.html")
 
 @render.route("/listar_users")
 def listar_users():
     return render_template("user/list_users.html")
 
+@render.route("/pag_cadastro_dispositivo")
+def pag_cadastro_dispositivo():
+    return render_template("device/cadastro_device.html")
+
 @render.route("/listar_sensores", methods = ["get"])
 def listar_sensores():
     sensores = Sensor.ver_sensores()
     return render_template("sensors/list_sensors.html", sensores=sensores)
+
+@render.route("/listar_dispositivos", methods = ["get"])
+def listar_dispositivos():
+    dispositivos = Dispositivo.ver_dispositivos()
+    return render_template("device/list_devices.html", dispositivos=dispositivos)
+
+@render.route("/delete_dispositivo/<id>")
+def delete_dispositivo(id):
+    if Dispositivo.delete_dispositivo(id):
+        flash("Dispositivo Excluído com sucesso!!", "success")
+    else:
+        flash("Dispositivo não pode ser excluído pois está relacionado a leituras salvas no banco!!", "danger")
+    return redirect(url_for('render.listar_dispositivos'))
 
 @render.route("/delete_sensor/<id>")
 def delete_sensor(id):
@@ -56,9 +65,14 @@ def update_sensor(id):
                         .join(Sensor, Sensor.id == Dispositivo.id)\
                         .filter(Sensor.id == int(id)).first()
     
-    # sensor = db.session.query(Sensor)
-
     return render_template("/sensors/update_sensor.html", sensor = sensor)
+
+def update_dispositivo(id):
+    sensor = db.session.query(Sensor, Dispositivo)\
+                        .join(Sensor, Sensor.id == Dispositivo.id)\
+                        .filter(Sensor.id == int(id)).first()
+    
+    return render_template("/dispositivos/update_dispositivo.html", sensor = sensor)
 
 @render.route("/salvar_sensor_changes", methods=["POST"])
 def salvar_sensor_changes():

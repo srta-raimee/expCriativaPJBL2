@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from controllers.render import render
 from controllers.user_controller import user
 from controllers.sensors_controller import sensors
-# from controllers.devices_controller import devices
+from controllers.devices_controller import dispositivos
 
 from models.db import db, instance 
 
@@ -18,7 +18,7 @@ def create_app() -> Flask:
     app.register_blueprint(render, url_prefix='/')
     app.register_blueprint(user, url_prefix='/user')
     app.register_blueprint(sensors, url_prefix='/sensors')
-    # app.register_blueprint(devices, url_prefix='/devices')
+    app.register_blueprint(dispositivos, url_prefix='/dispositivos')
 
 
     @app.route('/')

@@ -3,10 +3,6 @@ from models import *
 
 sensors = Blueprint("sensors", __name__, template_folder="./views/", static_folder='./static/', root_path="./")
 
-# @sensors.route("/listar_sensores", methods = ["get"])
-# def listar_sensores():
-#     sensores = Sensor.ver_sensores()
-#     return render_template("list_sensors.html", sensores=sensores)
   
 
 @sensors.route("/registrar_sensor", methods=["POST"])

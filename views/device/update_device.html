@@ -7,15 +7,15 @@
   <div class="leftcol">
   <div class="panel">
   	<div class="title">
-  		<h1>Atualização de infos dos Sensores: </h1>
+  		<h1>Atualização de infos dos dispositivos: </h1>
         
     </div>
       <div class="panel">
       
       
-      <form action="/salvar_sensor_changes" method="POST">
+      <form action="/salvar_dispositivo_changes" method="POST">
           <div class="contact-form mar-top30">
-            <label> <span>Nome do Sensor:</span>
+            <label> <span>Nome do dispositivo:</span>
               <input type="text" class="input_text" name="nome" id="nome"/>
               </label>
               <label> <span>ID:</span>
@@ -27,11 +27,10 @@
               <label> <span>tipo:</span>
                 <input type="text" class="input_text" name="tipo" id="tipo"/>
               
-              <!-- <h2>limite de proximdade: </h2> -->
-              <label> <span>limite de proximdade:</span>
-                <input type="text" class="input_text" name="limite_proximidade" id="limite_proximidade"/>
-              
-                
+                <label>
+                    <span>Status:</span>
+                    <input type="checkbox" name="status" />
+                </label>
             <button type="submit" class="button">Enviar</button>
           </div>
         </form>
@@ -48,4 +47,4 @@
 
 
 {% endblock %}
-{% block class6 %} class = 'active' {% endblock %}
+{% block class11 %} class = 'active' {% endblock %}

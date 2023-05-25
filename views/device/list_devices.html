@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} Listagem {% endblock %}
+{% block content %}
+    
+  
+<div class="page-wrap">
+<div class="wrap3">  
+  <div class=" leftcol">
+  <div class="panel">
+  	<div class="title">
+  		<h1>Listagem </h1>
+        <span>Listagem de Dispositivos: </span>
+    </div>
+      <div class="panel">
+        <div>
+          {% for dispositivo in dispositivos %}
+          <tr>
+            <h3>Nome do Dispositivo: </h3>
+            <td>{{ dispositivo.nome }}</td>
+            <h3>Descrição: </h3>
+            <td>{{ dispositivo.descricao }}</td>
+            <h3>ID dispositivo:</h3>
+            <td>{{ dispositivo.id }}</td>
+            <h3>Status: </h3>
+            <td>{{ dispositivo.status }}</td>
+         
+            <!-- <h3>Limite de Proximidade: </h3>
+            <td>{{ dispositivo.limite_proximidade }}</td> -->
+          </br></br>
+          <div>
+            <td><a href="update_dispositivo/{{ dispositivo.id }}"> Editar</a></td>
+            <td><a href="delete_dispositivo/{{ dispositivo.id }}" onclick="return confirm('Tem certeza que deseja excluir esse dispositivo?');"> Excluir</a></td>
+
+          </div>
+          </br></br>
+          
+{% endfor %}
+        </div>
+    
+        </div>
+        <div class="clearing"></div>
+      </div>
+
+  </div>	
+  </div>
+  
+  
+    
+  <div class="clearing"></div>
+</div>    
+</div><!---page-wrap-End--->
+
+
+{% endblock %}
+{% block class11 %} class = 'active' {% endblock %}
+
