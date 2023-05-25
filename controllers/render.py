@@ -1,5 +1,6 @@
 from flask import request, render_template, Blueprint, redirect, url_for, flash
 from models import *
+from flask_login import login_user, login_required, logout_user, current_user, login_manager
 # aqui tudo é renderizado
 render = Blueprint("render", __name__, template_folder="./views/", static_folder='./static/', root_path="./")
 
@@ -24,10 +25,25 @@ def pag_cad_user():
 def pag_log():
     return render_template("auth/login.html") 
 
-
-@render.route("/listar_users")
+@render.route("/list_users", methods = ["get"])
+@login_required
 def listar_users():
-    return render_template("user/list_users.html")
+     id_role = current_user.id_role
+     
+     if id_role == 1:
+          users = User.get_users()
+          return render_template("/user/list_users.html", users = users)
+     return redirect(url_for('render.pag_log'))
+
+# @render.route("/login")
+# def login():
+#     global nomes, emails, senhas, cpfs
+#     if nomes[i] == 
+
+# @render.route("/listar_sensores_pag")
+# def listar_sensores_pag():
+#     return fk.render_template("sensors/list_sensors.html")
+
 
 @render.route("/pag_cadastro_dispositivo")
 def pag_cadastro_dispositivo():

@@ -5,6 +5,7 @@ class Read(db.Model):
     __tablename__ = 'read'
 
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column("user_id", db.Integer(), db.ForeignKey(User.id))
     sensor_id = db.Column(db.Integer, db.ForeignKey('sensor.id'))
     valor = db.Column(db.Float)
     data_hora = db.Column(db.DateTime, default=datetime.utcnow)
