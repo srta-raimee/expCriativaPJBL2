@@ -15,11 +15,19 @@ a:hover{color:#ffffff;}
     
 }
 
-.error {
-    color: red;
-    font-weight: bold;
-  }
-  
+
+
+#caixaa{
+    display: flex;
+    margin: 10px;
+
+}
+
+.separar{
+    
+    margin-left: 20px;
+}
+
 /*-------------------------------------------------
 GENERAL CLASSES
 -------------------------------------------------*/

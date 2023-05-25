@@ -40,3 +40,4 @@ def create_app() -> Flask:
         return render_template("home.html")
 
     return app
+
