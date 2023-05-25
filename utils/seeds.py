@@ -1,12 +1,15 @@
-# from datetime import datetime
-# from flask_sqlalchemy import SQLAlchemy
-# from models import Dispositivo, Sensor, Acao
+from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+from models import Dispositivo, Sensor, Acao, UserRole,Role
 
-# def generate_seeds(db: SQLAlchemy):
-#     dispositivo1 = Dispositivo(nome="Nome do Dispositivo 1", descricao="Descrição do Dispositivo 1")
-#     dispositivo1.status = True  # Definir o atributo 'status' separadamente
-#     db.session.add(dispositivo1)
-#     db.session.commit()
+def generate_seeds(db: SQLAlchemy):
+    role = Role(name="Admin", description="Administrator of website and database")
+    db.session.add(role)
+    db.session.commit()
+
+    role2 = Role(name="User", description="Ordinary user")
+    db.session.add(role2)
+    db.session.commit()
 
 #     sensor1 = Sensor(nome="Nome do Sensor 1", descricao="Descrição do Sensor 1", tipo="Tipo do Sensor 1", limite_proximidade=0.5, dispositivo=dispositivo1)
 #     db.session.add(sensor1)
